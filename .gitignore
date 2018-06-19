@@ -6,6 +6,16 @@ __pycache__/
 # C extensions
 *.so
 
+# Db files
+*.db
+*.pid
+
+# Config files
+*.ini
+
+# Log Files
+logs/
+
 # Distribution / packaging
 .Python
 build/
