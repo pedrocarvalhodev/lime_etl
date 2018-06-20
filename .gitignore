@@ -16,8 +16,8 @@ __pycache__/
 # Log Files
 logs/
 
-# Text files
-*.txt
+# Export files
+lime_export_*.txt
 
 # Distribution / packaging
 .Python

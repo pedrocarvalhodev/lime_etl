@@ -40,7 +40,7 @@ DATE_NOW = datetime.datetime.now().strftime('%Y%m%d')
 lime = Api(url, user, key)
 
 export_res_token = lime.export_responses(sid=sid, status='all', heading='code', response='short', fields='')
-OUTPUT_PATH = PATH+"/lime_export_export_{s}.txt".format(s=sid)
+OUTPUT_PATH = PATH+"/lime_export_{s}.txt".format(s=sid)
 
 with open(OUTPUT_PATH, 'w') as outfile:
   json.dump(export_res_token, outfile)
