@@ -12,8 +12,10 @@ import pandas_redshift as pr
 
 from configparser import ConfigParser
 
+PATH = '/home/pgarcia/repos/prod/lime_etl'
+
 config = ConfigParser()
-config.read( '/home/pgarcia/repos/prod/lime_etl/.config.ini' )
+config.read( PATH + '/.config.ini' )
 
 s3_credentials_AWS_ACCESS_KEY=config['AWS_S3']['AWS_ACCESS_KEY']
 s3_credentials_AWS_SECRET_KEY=config['AWS_S3']['AWS_SECRET_KEY']
@@ -29,7 +31,7 @@ redshift_credentials_password=config['AWS_REDSHIFT']['PASSWORD']
 user=config['LIME_CONFIG']['LIME_USER']
 key=config['LIME_CONFIG']['LIME_KEY']
 url=config['LIME_CONFIG']['LIME_API_URL']
-sid=config['LIME_CONFIG']['LIME_SID_ORDER']
+sid=config['LIME_CONFIG']['LIME_SID_RETURN']
 token=config['LIME_CONFIG']['LIME_TOKEN_BASE']
 
 DATE_NOW = datetime.datetime.now().strftime('%Y%m%d')
@@ -38,7 +40,7 @@ DATE_NOW = datetime.datetime.now().strftime('%Y%m%d')
 lime = Api(url, user, key)
 
 export_res_token = lime.export_responses(sid=sid, status='', heading='', response='', fields='')
-OUTPUT_PATH = "/home/pgarcia/Downloads/LimeSurveyData/lime_export_{s}_{d}.txt".format(s=sid, d=DATE_NOW)
+OUTPUT_PATH = PATH+"/lime_export_{s}.txt".format(s=sid)
 
 with open(OUTPUT_PATH, 'w') as outfile:
 	json.dump(export_res_token, outfile)

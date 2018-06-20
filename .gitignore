@@ -16,6 +16,9 @@ __pycache__/
 # Log Files
 logs/
 
+# Text files
+*.txt
+
 # Distribution / packaging
 .Python
 build/
