@@ -7,7 +7,7 @@ docutils==0.14
 idna==2.6
 jmespath==0.9.3
 LimeSurvey-API==1.0
-numpy==1.14.3
+numpy==1.22.0
 pandas==0.23.0
 pandas-redshift==1.1.2
 psycopg2==2.7.4
